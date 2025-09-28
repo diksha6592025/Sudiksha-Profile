@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudiksha</title>
+    
+    <style>
+        /* --- Global Styles & Attractive Background --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* Attractive Gradient Background */
+            background: linear-gradient(135deg, #f0f4f8 0%, #c4d7e8 100%);
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth; /* IMPORTANT for smooth scrolling between sections */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Navigation Bar --- */
+        nav {
+            background-color: #007bff; /* Primary Color */
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #c4d7e8; /* Lighter hover color */
+            border-bottom: 2px solid #c4d7e8;
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 80px 0;
+            min-height: 80vh; 
+        }
+
+        /* --- 1. Landing/About Me Section --- */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            padding-top: 100px; 
+            min-height: calc(100vh - 80px); 
+        }
+
+        .profile-layout {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 60px;
+        }
+
+        .content-left {
+            flex: 2;
+        }
+
+        .content-left h1 {
+            color: #2c3e50;
+            font-size: 3em;
+            margin-top: 10px;
+        }
+
+        .image-right {
+            flex: 1;
+            text-align: center;
+        }
+
+        .image-right img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 50%; /* Circular image */
+            border: 6px solid #007bff;
+            box-shadow: 0 0 25px rgba(0, 123, 255, 0.5);
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .image-right img:hover {
+            transform: scale(1.03);
+        }
+
+        /* --- Button Styling --- */
+        .button-group {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* --- 2 & 3. Detail Sections (Education/Hobbies) --- */
+        #education {
+            background-color: #e9ecef; /* Light gray background */
+        }
+
+        #hobbies {
+            background-color: white;
+        }
+
+        .detail-section h2 {
+            text-align: center;
+            color: #28a745; /* Secondary Accent Color */
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .detail-section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #28a745;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .detail-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            border-left: 5px solid #007bff;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            background-color: #2c3e50;
+            color: white;
+            font-size: 0.9em;
+        }
+
+        /* --- Media Queries for Responsiveness (Mobile View) --- */
+        @media (max-width: 900px) {
+            .profile-layout {
+                flex-direction: column; 
+                text-align: center;
+                padding: 40px 20px;
+            }
+            
+            .image-right {
+                order: -1; 
+                margin-bottom: 30px;
+            }
+
+            .image-right img {
+                max-width: 180px;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links a {
+                margin: 0 10px;
+            }
+
+            .nav-logo {
+                margin-bottom: 10px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">Sudiksha</a>
+            <div class="nav-links">
+                <a href="#home">About Me</a>
+                <a href="#education">Education</a>
+                <a href="#hobbies">Hobbies</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section container">
+        <div class="profile-layout">
+            
+            <div class="content-left">
+                <h2>Hello! I'm Sudiksha</h2>
+                <h1>B.Tech. Student & Eager Learner</h1>
+                <p>
+                    Hello! I'm <b>Sudiksha</b>, a dedicated <b>B.Tech.</b> student currently pursuing my degree in <b>Computer Science</b>. I have successfully completed my first year of studies and am focused on building a strong foundation in engineering principles and technology. I am driven by the curiosity to learn new skills and excited about the journey ahead in my field.
+                </p>
+                
+                <div class="button-group">
+                    <a href="#education" class="btn">View Education</a>
+                    <a href="#hobbies" class="btn">Explore Hobbies</a>
+                </div>
+            </div>
+            
+            <div class="image-right">
+                <img src="Diksha.jpeg" alt="A photo of Sudiksha">
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="detail-section container">
+        <h2>My Education & Professional Journey</h2>
+        
+        <div class="detail-card">
+            <h3>B.Tech. in Computer Science (Ongoing)</h3>
+            <p><strong>Status:</strong> Completed 1st Year</p>
+            <p>Currently pursuing my Bachelor of Technology degree. My focus areas include core programming concepts, data structures, and algorithms, with a special interest in web development.</p>
+        </div>
+
+        <div class="detail-card">
+            <h3>Intermediate / 12th Grade with 73% </h3>
+            <p><strong>Board/School:</strong> Shibli nationl inter college, Paharpur, Azamgarh</p>
+            <p>Completed my intermediate studies with a focus on Science. This phase built a strong foundation for my technical education.</p>
+        </div>
+        
+        <div class="detail-card">
+            <h3>High School / 10th Grade with 79%</h3>
+            <p><strong>Board/School:</strong> Moder public school, Mohammdalla, Azamgarh</p>
+            <p>Achieved a strong academic performance, which fostered my discipline and foundational knowledge across various subjects.</p>
+        </div>
+    </section>
+
+    <section id="hobbies" class="detail-section container">
+        <h2>My Passions & Hobbies</h2>
+        
+        <div class="detail-card">
+            <h3>Creative & Digital Pursuits 🎨💻</h3>
+            <p>
+                <i>Singing & Poetry:</i> Expressing emotions and creativity through music and writing soulful verses.<br>
+                <i>Vlogging & Content Creation:</i> Producing engaging digital content, honing skills in video editing and storytelling.
+            </p>
+        </div>
+
+        <div class="detail-card">
+            <h3>Mind & Body Development 🧠🏃‍♂️</h3>
+            <p>
+                <i>Coding:</i> Beyond work, I enjoy solving complex problems and building small projects.<br>
+                <i>Reading:</i> Exploring new perspectives and gaining knowledge across various genres.<br>
+                <i>Playing:</i> Staying active and maintaining focus through physical activity/sports.<br>
+                <i>Chess:</i> A strategic challenge that sharpens my critical thinking and planning skills.
+            </p>
+        </div>
+        
+        <div class="detail-card">
+            <h3>Exploration & Lifestyle 🌍✨</h3>
+            <p>
+                <i>Traveling:</i>Discovering new places, cultures, and gaining real-world inspiration.<br>
+            </p>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Sudiksha. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
